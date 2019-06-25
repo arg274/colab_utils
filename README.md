@@ -46,6 +46,16 @@ __Background__
 colab_utils.push_to_gdrive(drive, colaboratory_path, google_drive_directory)
 ```
 
+## Upload (i.e. \"push\") files from your Colaboratory to your Google Team Drive
+1. Push to a certain subdirectory of your Team Drive:
+   ``` python
+   colab_utils.push_to_tdrive(drive, <colaboratory_path>, <team_drive_id>, <team_drive_directory_id>)
+   ```
+2. Push to the root of your Team Drive
+   ``` python
+   colab_utils.push_to_tdrive(drive, <colaboratory_path>, <team_drive_id>, None)
+   ```
+
 ## Download (i.e. \"pull\") files from your Google Drive to your Colaboratory
 ``` python
 colab_utils.pull_from_gdrive(drive, google_drive_path, colaboratory_directory)
