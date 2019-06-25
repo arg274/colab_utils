@@ -118,6 +118,30 @@ def push_to_gdrive(gdrive, fpath_to_upload,
     return gdrive_file
 
 
+def push_to_tdrive(gdrive, fpath_to_upload,
+                   tdrive_chooser, tdrive_path_chooser):
+    """ Uploads content to Google Team Drive from Google Colaboratory. """
+    tdrive_string = '{}'
+
+    if tdrive_path_chooser is None:
+        tdrive_path_chooser = tdrive_chooser
+
+    createfile_arg = {
+      'parents': [{
+            'kind': 'drive#fileLink',
+            'teamDriveId': tdrive_string.format(tdrive_chooser),
+            'id': tdrive_string.format(tdrive_path_chooser)
+        }]
+    }
+
+    tdrive_file = gdrive.CreateFile(createfile_arg)
+    tdrive_file.SetContentFile(fpath_to_upload)
+    tdrive_file['title'] = os.path.basename(fpath_to_upload)
+    tdrive_file.Upload(param={'supportsTeamDrives': True})
+
+    return tdrive_file
+
+
 def pull_from_gdrive(gdrive, absolute_gdrive_path=None,
                      colaboratory_save_directory=None,
                      absolute_gdrive_path_id=None):
