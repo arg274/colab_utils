@@ -20,7 +20,7 @@ __Background__
     - Click `Save`.
 3. Clone this package by running the following in a Colab notebook cell.
     ```
-    !git clone https://github.com/RaviSoji/colab_utils.git  # Include the "!".
+    !git clone https://github.com/arg274/colab_utils.git  # Include the "!".
     ```
 
 ## Usage
